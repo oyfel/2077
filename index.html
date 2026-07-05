@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANG TAO // 2077 PORTAL</title>
+    
+    <!-- Customized Corporate Favicon from Screenshot_20260704_010930_Samsung Browser.png -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23060606'/%3E%3Cpolygon points='15,20 92,20 85,80 8,80' fill='%23ff5500'/%3E%3Ctext x='47%25' y='55%25' font-family='Noto Sans SC, sans-serif' font-weight='900' font-size='42' fill='%23060606' text-anchor='middle' dominant-baseline='central'%3E康陶%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #060606;
+            --orange-primary: #ff5500;
+            --orange-glow: rgba(255, 85, 0, 0.4);
+            --text-main: #ffffff;
+            --text-muted: #888890;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Orbitron', 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Ambient background grid pattern and lens glow */
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 85, 0, 0.012) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 85, 0, 0.012) 1px, transparent 1px);
+            background-size: 60px 60px;
+            background-position: center;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: var(--orange-primary);
+            filter: blur(160px);
+            opacity: 0.12;
+            z-index: 0;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        /* --- STREAMING_CHUNK: Styling the center welcome matrix --- */
+        .portal-center-box {
+            text-align: center;
+            z-index: 1;
+            padding: 2.5rem;
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .portal-title {
+            font-size: 2.4rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-accent {
+            color: var(--orange-primary);
+            text-shadow: 0 0 20px var(--orange-glow);
+            animation: cyberPulse 2s infinite alternate;
+        }
+
+        .portal-sub {
+            display: block;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 12px;
+            text-indent: 12px;
+        }
+
+        /* Decorative horizontal framing brackets */
+        .decorative-bracket {
+            width: 40px;
+            height: 1px;
+            background-color: var(--orange-primary);
+            margin: 2rem auto 0 auto;
+            position: relative;
+            box-shadow: 0 0 8px var(--orange-glow);
+        }
+
+        /* --- STREAMING_CHUNK: Defining keyframe animations --- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes cyberPulse {
+            0% {
+                text-shadow: 0 0 12px var(--orange-glow);
+            }
+            100% {
+                text-shadow: 0 0 28px rgba(255, 85, 0, 0.85), 0 0 45px rgba(255, 85, 0, 0.45);
+            }
+        }
+
+        /* Responsive scaling */
+        @media (max-width: 600px) {
+            .portal-title {
+                font-size: 1.6rem;
+                letter-spacing: 3px;
+            }
+            .portal-sub {
+                font-size: 0.8rem;
+                letter-spacing: 8px;
+                text-indent: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Streamlined Center Welcome Matrix -->
+    <div class="portal-center-box">
+        <h1 class="portal-title">
+            Welcome to the <span class="highlight-accent">2077 Portal</span>
+        </h1>
+        <span class="portal-sub">(coming soon)</span>
+        <div class="decorative-bracket"></div>
+    </div>
+
+</body>
+</html>
