@@ -5,40 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- PRIMARY SEARCH ENGINE METADATA -->
-    <title>KANG TAO // 2077 PORTAL</title>
-    <meta name="description" content="Official database for Kang Tao. Manufacturers of smart ammunition, autonomous defense assets, quantum encryption networks, and QianT implants.">
-    <meta name="keywords" content="Kang Tao, Smart Weapons, Cyberware, QianT, Sandevistan, Neural Upgrades, Cyberpunk Defense">
+    <title>康陶 KANG TAO // CENTRAL NETWORK PORTAL 2077</title>
+    <meta name="description" content="Official global database and neural interface for Kang Tao. Manufacturers of smart class ammunition, autonomous defensive barriers, sub-orbital satellite networks, and QianT neurological cyberware implants.">
+    <meta name="keywords" content="Kang Tao, 康陶, Smart Weapons, Smart Pistol, Cyberware, QianT, Sandevistan, Neural Upgrades, Cyberpunk Defense, Shenyang HQ">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://2077.kangtao.co">
 
-    <!-- Optimized Corporate Favicon based on Screenshot_20260704_010930_Samsung Browser.png -->
+    <!-- Optimized Corporate Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23060606'/%3E%3Cpolygon points='15,20 92,20 85,80 8,80' fill='%23ff5500'/%3E%3Cpath d='M30,35 L70,35 M50,25 L50,35 M35,35 L35,65 M40,42 L60,42 M50,42 L50,57 M40,50 L60,50 M41,57 L35,65 M59,57 L65,65' stroke='%23060606' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 
+    <!-- Preconnecting and importing key brand typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Share+Tech+Mono&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS Integration for high-end utility layouts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         :root {
             --bg-color: #060606;
-            --surface-card: #0f0f12;
-            --surface-hover: #15151a;
+            --surface-card: #0c0c0f;
+            --surface-hover: #121217;
             --orange-primary: #ff5500;
             --orange-glow: rgba(255, 85, 0, 0.4);
+            --orange-dim: rgba(255, 85, 0, 0.15);
+            --cyan-accent: #00f0ff;
             --text-main: #ffffff;
-            --text-muted: #888890;
-            --border-color: #222226;
+            --text-muted: #888894;
+            --border-color: #1a1a22;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        *:focus-visible {
-            outline: 2px solid var(--orange-primary);
-            outline-offset: 4px;
         }
 
         body {
@@ -50,226 +51,48 @@
             position: relative;
         }
 
+        /* Ambient scanline and futuristic grid overlays */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
             background-image: 
-                linear-gradient(rgba(255, 85, 0, 0.012) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 85, 0, 0.012) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(rgba(255, 85, 0, 0.008) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 85, 0, 0.008) 1px, transparent 1px);
+            background-size: 40px 40px;
             background-position: center;
             z-index: 0;
             pointer-events: none;
         }
 
-        /* --- GLOBAL NAVIGATION STRUCT --- */
-        nav {
-            width: 100%;
-            border-bottom: 1px solid var(--border-color);
-            background: rgba(6, 6, 6, 0.85);
-            backdrop-filter: blur(16px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 0 2rem;
-            display: flex;
-            flex-direction: column;
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 4px, 6px 100%;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0.8;
         }
 
-        .nav-top-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1.2rem 0 1rem 0;
-            width: 100%;
+        /* Glow effects and standard styling overrides */
+        .glow-text-orange {
+            text-shadow: 0 0 10px var(--orange-glow);
+        }
+        .glow-border-orange:hover {
+            box-shadow: 0 0 15px var(--orange-dim);
+            border-color: var(--orange-primary);
         }
 
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .logo-img {
-            height: 38px;
-            width: auto;
-            display: block;
-        }
-
-        .nav-bottom-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-bottom: 0.8rem;
-            width: 100%;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 0.5rem;
-            list-style: none;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
-        }
-
-        .nav-links button {
-            background: none;
-            border: 1px solid transparent;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            text-transform: uppercase;
-            font-family: inherit;
-            font-size: inherit;
-            letter-spacing: inherit;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-        }
-
-        .nav-links button:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .nav-links button.active {
-            color: var(--orange-primary);
-            border-color: rgba(255, 85, 0, 0.2);
-            background: rgba(255, 85, 0, 0.03);
-            font-weight: 700;
-        }
-
-        /* --- LAYOUT WRAPPER --- */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tab-panel {
-            display: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .tab-panel.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- HERO PORTAL PANEL --- */
-        .hero-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 50vh;
-            width: 100%;
-        }
-
-        .container {
-            background: linear-gradient(180deg, #111113 0%, rgba(17, 17, 19, 0.95) 85%, rgba(6, 6, 6, 0) 100%);
-            border: 1px solid var(--border-color);
-            border-bottom: 1px solid transparent;
-            padding: 6rem 2rem 5rem 2rem;
-            border-radius: 24px 24px 0 0;
-            text-align: center;
-            width: 100%;
-            max-width: 760px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.7);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .brand-header-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 4rem;
-        }
-
-        .hero-logo-img {
-            height: 62px;
-            width: auto;
-            margin-bottom: 2rem;
-        }
-
-        .slogan-container { display: flex; align-items: center; width: 100%; max-width: 540px; gap: 16px; }
-        .orange-line { flex-grow: 1; height: 1px; background-color: var(--orange-primary); box-shadow: 0 0 6px var(--orange-glow); }
-        .slogan-sub { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--orange-primary); letter-spacing: 4px; text-indent: 4px; white-space: nowrap; text-transform: uppercase; }
-
-        .status-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.2rem;
-        }
-
-        .badge-deployment {
-            display: inline-block;
-            background: rgba(15, 15, 17, 0.8);
-            padding: 0.6rem 2.2rem;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            border-radius: 4px;
-            color: #ffffff;
-            box-shadow: -2px 0 8px rgba(255, 0, 0, 0.5), 0px 0 8px rgba(0, 255, 0, 0.3), 2px 0 8px rgba(0, 102, 255, 0.5);
-            animation: rgbShift 4s infinite linear;
-        }
-
-        @keyframes rgbShift {
-            0%, 100% { box-shadow: -2px -2px 10px rgba(255,0,0,0.5), 2px 2px 10px rgba(0,102,255,0.5); }
-            33% { box-shadow: 2px -2px 10px rgba(0,255,0,0.5), -2px 2px 10px rgba(255,0,0,0.5); }
-            66% { box-shadow: -2px 2px 10px rgba(0,102,255,0.5), 2px -2px 10px rgba(0,255,0,0.5); }
-        }
-
-        .timeline-text { color: var(--orange-primary); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 2px; }
-
-        /* --- MODERN GRID MODULE MATRIX --- */
-        .section-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-            border-left: 4px solid var(--orange-primary);
-            padding-left: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .section-title span { color: var(--text-muted); font-size: 0.8rem; font-family: 'Share Tech Mono'; letter-spacing: 1px; }
-
-        .system-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
+        /* --- IMMERSIVE INTERFACE ELEMENTS --- */
         .tech-card {
             background-color: var(--surface-card);
             border: 1px solid var(--border-color);
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
+            border-radius: 8px;
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 280px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .tech-card::before {
@@ -284,333 +107,759 @@
         .tech-card:hover {
             background-color: var(--surface-hover);
             border-color: rgba(255, 85, 0, 0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
         }
 
-        .tech-card:hover::before { transform: translateX(100%); }
-
-        .card-meta { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; }
-        .card-id { font-family: 'Share Tech Mono'; color: var(--orange-primary); font-size: 0.8rem; letter-spacing: 1px; }
-        .card-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; }
-        .card-desc { color: var(--text-muted); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; line-height: 1.6; font-weight: 400; }
-
-        /* --- GEOMETRIC FOOTER FRAMEWORK --- */
-        .footer-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            padding-top: 2.5rem;
-            margin-top: 6rem;
-            margin-bottom: 1rem;
+        .tech-card:hover::before {
+            transform: translateX(100%);
         }
 
-        .footer-help-row {
-            text-align: center;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
+        /* Custom scrollbar matching retro cyber interface */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--orange-primary);
         }
 
-        .help-link {
-            color: var(--text-muted);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            transition: color 0.3s ease;
-            font-weight: 600;
+        /* Glitch text effect for authentic visual vibe */
+        .glitch-hover:hover {
+            animation: textGlitch 0.2s steps(2) infinite;
         }
 
-        .help-link:hover {
-            color: var(--orange-primary);
+        @keyframes textGlitch {
+            0% { transform: translate(0); text-shadow: 1px 1px var(--cyan-accent), -1px -1px var(--orange-primary); }
+            50% { transform: translate(-1px, 1px); text-shadow: -1px 1px var(--orange-primary), 1px -1px var(--cyan-accent); }
+            100% { transform: translate(0); }
         }
 
-        @media (max-width: 1024px) {
-            .system-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-        }
-
-        @media (max-width: 768px) {
-            nav { padding: 1rem; }
-            .nav-top-row { flex-direction: row; justify-content: center; padding: 0.5rem 0 1rem 0; }
-            .nav-bottom-row { padding-bottom: 0.5rem; }
-            
-            .nav-links { gap: 0.2rem; flex-wrap: wrap; justify-content: center; width: 100%; }
-            .nav-links button { padding: 0.5rem 0.6rem; font-size: 0.7rem; }
-            .system-grid { grid-template-columns: 1fr; gap: 1rem; }
-            
-            main { padding: 2rem 1rem; }
-            .container { padding: 4rem 1.5rem 3rem 1.5rem; }
-            .hero-logo-img { height: 44px; margin-bottom: 1.5rem; }
-            .slogan-sub { font-size: 0.8rem; letter-spacing: 4px; }
-            .slogan-container { gap: 10px; }
-            
-            .tech-card { min-height: auto; padding: 2rem 1.5rem; }
-            .section-title { font-size: 1.1rem; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-
-            .footer-row { padding-top: 2rem; margin-top: 4rem; }
+        .cyber-panel-clip {
+            clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
         }
     </style>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
-    <!-- Integrated Structural Navigation Header Matrix -->
-    <header>
-        <nav aria-label="Global Directory">
-            <div class="nav-top-row">
-                <a class="nav-logo" href="https://kangtao.co" aria-label="Kang Tao Home">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 310 60'%3E%3Crect width='310' height='60' fill='none'/%3E%3Cpolygon points='10,10 110,10 95,50 10,50' fill='%23ff5500'/%3E%3Cpath d='M25,23 L55,23 M40,16 L40,23 M29,23 L29,44 M33,28 L48,28 M40,28 L40,39 M33,33 L48,33 M34,39 L29,44 M46,39 L51,44' stroke='%23060606' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M62,20 L62,44 M62,20 C68,20 68,26 62,26 C68,26 68,32 62,32 M72,23 L90,23 M76,28 L86,28 L86,36 L76,36 Z M76,32 L86,32 M81,36 L81,44 M74,44 L88,44' stroke='%23060606' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ctext x='130' y='34' font-family='Orbitron, sans-serif' font-weight='900' font-size='26' fill='%23ffffff' dominant-baseline='central'%3EKANG%3C/text%3E%3Ctext x='212' y='34' font-family='Orbitron, sans-serif' font-weight='900' font-size='26' fill='%23ff5500' dominant-baseline='central'%3ETAO%3C/text%3E%3C/svg%3E" alt="Kang Tao Logo Image" class="logo-img">
+    <!-- HIGH-INTEGRITY CYBERPUNK HEADER -->
+    <header class="sticky top-0 z-50 w-full bg-[#060606]/90 border-b border-[#1a1a22] backdrop-blur-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            
+            <!-- Brand Logotype & Origin Status -->
+            <div class="flex items-center justify-between">
+                <a href="https://2077.kangtao.co" class="flex items-center gap-3 group">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 310 60'%3E%3Crect width='310' height='60' fill='none'/%3E%3Cpolygon points='10,10 110,10 95,50 10,50' fill='%23ff5500'/%3E%3Cpath d='M25,23 L55,23 M40,16 L40,23 M29,23 L29,44 M33,28 L48,28 M40,28 L40,39 M33,33 L48,33 M34,39 L29,44 M46,39 L51,44' stroke='%23060606' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M62,20 L62,44 M62,20 C68,20 68,26 62,26 C68,26 68,32 62,32 M72,23 L90,23 M76,28 L86,28 L86,36 L76,36 Z M76,32 L86,32 M81,36 L81,44 M74,44 L88,44' stroke='%23060606' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ctext x='130' y='34' font-family='Orbitron, sans-serif' font-weight='900' font-size='26' fill='%23ffffff' dominant-baseline='central'%3EKANG%3C/text%3E%3Ctext x='212' y='34' font-family='Orbitron, sans-serif' font-weight='900' font-size='26' fill='%23ff5500' dominant-baseline='central'%3ETAO%3C/text%3E%3C/svg%3E" alt="Kang Tao" class="h-10 w-auto">
+                    <div class="hidden sm:flex flex-col border-l border-[#22222a] pl-3">
+                        <span class="text-[9px] font-mono text-[#888894] tracking-widest uppercase">Global Headquarters</span>
+                        <span class="text-[11px] font-sans text-white tracking-wider font-bold">沈阳 SHENYANG // CHINA</span>
+                    </div>
                 </a>
+                
+                <!-- System Time & Status Indicator (Bilingual) -->
+                <div class="flex items-center gap-3 md:hidden text-[11px] font-mono text-[#ff5500]">
+                    <span class="h-2 w-2 rounded-full bg-[#ff5500] animate-pulse"></span>
+                    <span>ONLINE // 联机</span>
+                </div>
             </div>
 
-            <div class="nav-bottom-row">
-                <ul class="nav-links" role="tablist">
+            <!-- Interactive Tab Directory Row -->
+            <div class="flex items-center overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+                <ul class="flex gap-1 md:gap-2 font-mono text-xs tracking-widest whitespace-nowrap" role="tablist">
                     <li role="presentation">
-                        <button id="btn-overview" class="active" onclick="switchTab('overview')" role="tab" aria-selected="true" aria-controls="tab-overview">
-                            Overview
+                        <button id="btn-overview" class="active px-3 py-2 border border-transparent rounded text-[#888894] hover:text-white transition-all font-semibold uppercase flex items-center gap-1.5" onclick="switchTab('overview')" role="tab" aria-selected="true" aria-controls="tab-overview">
+                            <span>01/ 主页</span> Overview
                         </button>
                     </li>
                     <li role="presentation">
-                        <button id="btn-products" onclick="switchTab('products')" role="tab" aria-selected="false" aria-controls="tab-products">
-                            Products
+                        <button id="btn-products" class="px-3 py-2 border border-transparent rounded text-[#888894] hover:text-white transition-all font-semibold uppercase flex items-center gap-1.5" onclick="switchTab('products')" role="tab" aria-selected="false" aria-controls="tab-products">
+                            <span>02/ 军械</span> Armory
                         </button>
                     </li>
                     <li role="presentation">
-                        <button id="btn-defense" onclick="switchTab('defense')" role="tab" aria-selected="false" aria-controls="tab-defense">
-                            Defense
+                        <button id="btn-defense" class="px-3 py-2 border border-transparent rounded text-[#888894] hover:text-white transition-all font-semibold uppercase flex items-center gap-1.5" onclick="switchTab('defense')" role="tab" aria-selected="false" aria-controls="tab-defense">
+                            <span>03/ 防务</span> Defense
                         </button>
                     </li>
                     <li role="presentation">
-                        <button id="btn-network" onclick="switchTab('network')" role="tab" aria-selected="false" aria-controls="tab-network">
-                            Network
+                        <button id="btn-network" class="px-3 py-2 border border-transparent rounded text-[#888894] hover:text-white transition-all font-semibold uppercase flex items-center gap-1.5" onclick="switchTab('network')" role="tab" aria-selected="false" aria-controls="tab-network">
+                            <span>04/ 星网</span> Network
                         </button>
                     </li>
                     <li role="presentation">
-                        <button id="btn-qiant" onclick="switchTab('qiant')" role="tab" aria-selected="false" aria-controls="tab-qiant">
-                            QianT
+                        <button id="btn-qiant" class="px-3 py-2 border border-transparent rounded text-[#888894] hover:text-white transition-all font-semibold uppercase flex items-center gap-1.5" onclick="switchTab('qiant')" role="tab" aria-selected="false" aria-controls="tab-qiant">
+                            <span>05/ 千体</span> QianT
                         </button>
                     </li>
                 </ul>
             </div>
+
+            <!-- Terminal Clearance Level Status Display -->
+            <div class="hidden md:flex items-center gap-4 text-right">
+                <div class="font-mono text-xs">
+                    <div class="text-[#888894] tracking-wider">SECURE LINK STATUS:</div>
+                    <div class="text-white font-bold tracking-widest text-[#00f0ff]">CLASS-A INTEL // 安全许可</div>
+                </div>
+                <div class="h-2 w-2 rounded-full bg-[#00f0ff] animate-pulse"></div>
+            </div>
+            
         </nav>
     </header>
 
-    <main>
-        
-        <!-- MODULE PORTAL 01: CORPORATE OVERVIEW -->
-        <section id="tab-overview" class="tab-panel active" role="tabpanel" aria-labelledby="btn-overview">
-            <div class="hero-section">
-                <div class="container">
-                    <div class="brand-header-block">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 310 60'%3E%3Crect width='310' height='60' fill='none'/%3E%3Cpolygon points='10,10 110,10 95,50 10,50' fill='%23ff5500'/%3E%3Cpath d='M25,23 L55,23 M40,16 L40,23 M29,23 L29,44 M33,28 L48,28 M40,28 L40,39 M33,33 L48,33 M34,39 L29,44 M46,39 L51,44' stroke='%23060606' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M62,20 L62,44 M62,20 C68,20 68,26 62,26 C68,26 68,32 62,32 M72,23 L90,23 M76,28 L86,28 L86,36 L76,36 Z M76,32 L86,32 M81,36 L81,44 M74,44 L88,44' stroke='%23060606' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ctext x='130' y='34' font-family='Orbitron, sans-serif' font-weight='900' font-size='26' fill='%23ffffff' dominant-baseline='central'%3EKANG%3C/text%3E%3Ctext x='212' y='34' font-family='Orbitron, sans-serif' font-weight='900' font-size='26' fill='%23ff5500' dominant-baseline='central'%3ETAO%3C/text%3E%3C/svg%3E" alt="Kang Tao Logo Emblem" class="hero-logo-img">
-                        <div class="slogan-container">
-                            <div class="orange-line" aria-hidden="true"></div>
-                            <div class="slogan-sub">
-                                Advanced Intelligent Electronic Solutions
-                            </div>
-                            <div class="orange-line" aria-hidden="true"></div>
+    <!-- Custom Nav Active Indicator Styling -->
+    <style>
+        .nav-links button.active, nav button.active {
+            color: var(--orange-primary);
+            border-color: rgba(255, 85, 0, 0.25) !important;
+            background: rgba(255, 85, 0, 0.05);
+            text-shadow: 0 0 8px rgba(255, 85, 0, 0.2);
+        }
+    </style>
+
+    <!-- MAIN INTERFACE BODY -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+
+        <!-- ======================= TAB 01: CORPORATE OVERVIEW ======================= -->
+        <section id="tab-overview" class="tab-panel active space-y-12" role="tabpanel" aria-labelledby="btn-overview">
+            
+            <!-- Immersive Hero Banner Block -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Brand Statement & Key Objectives -->
+                <div class="lg:col-span-7 bg-[#0c0c0f] border border-[#1a1a22] rounded-xl p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+                    <div class="absolute -right-16 -top-16 w-64 h-64 bg-gradient-to-br from-[#ff5500]/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="px-2 py-0.5 bg-[#ff5500]/10 border border-[#ff5500]/30 text-[#ff5500] font-mono text-[10px] tracking-widest rounded">SYS // SECURE_UPLINK</span>
+                            <span class="text-[#888894] font-mono text-xs">GLOBAL NET INTEGRITY: 99.98%</span>
                         </div>
+                        
+                        <h1 class="font-sans text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
+                            PRECISION THRU INTELLIGENCE.<br>
+                            <span class="text-[#ff5500] font-black glow-text-orange font-mono">智能与精准 领先全球。</span>
+                        </h1>
+                        
+                        <p class="text-[#888894] text-sm sm:text-base leading-relaxed mb-6 font-medium max-w-xl">
+                            Kang Tao represents the absolute pinnacle of defense engineering, tactical smart-ammunition hardware, and high-tier neural implants. Centered in Shenyang, our industrial complexes power regional security grids, sovereign defense operations, and elite tactical units worldwide with uncompromised network-synced weaponry.
+                        </p>
                     </div>
-                    <div class="status-block">
-                        <div class="badge-deployment">
-                            Early Development
+
+                    <!-- Interactive Quick Diagnostics -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-[#1a1a22] pt-6 font-mono">
+                        <div>
+                            <span class="text-[10px] text-[#888894] block uppercase tracking-wider">HQ Central Node</span>
+                            <span class="text-white font-bold text-sm text-[#00f0ff]">SHENYANG-1</span>
                         </div>
-                        <div class="timeline-text">
-                            FULL WEBSITE DEPLOYMENT COMING SOON // Q3 2026
+                        <div>
+                            <span class="text-[10px] text-[#888894] block uppercase tracking-wider">Active Deployments</span>
+                            <span class="text-white font-bold text-sm">3,481,209 Units</span>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                            <span class="text-[10px] text-[#888894] block uppercase tracking-wider">Defense Integrity</span>
+                            <span class="text-white font-bold text-sm text-[#ff5500]">NOMINAL // OPERATIONAL</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Live Network Status Monitor Terminal Component -->
+                <div class="lg:col-span-5 bg-[#0a0a0d] border border-[#1a1a22] rounded-xl p-6 flex flex-col justify-between font-mono text-xs shadow-2xl relative">
+                    <div class="border-b border-[#1a1a22] pb-4 mb-4 flex justify-between items-center">
+                        <span class="text-[#ff5500] font-bold tracking-widest text-[11.5px] uppercase flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-[#ff5500] animate-ping"></span>
+                            Live Diagnostics // 实时诊断
+                        </span>
+                        <span class="text-[#888894] text-[10px]">VER: 84.09.2077</span>
+                    </div>
+
+                    <!-- Diagnostic logs loop simulating true network interface -->
+                    <div class="space-y-3 flex-grow overflow-y-auto max-h-[220px] pr-2 mb-4 scrollbar-thin" id="diag-container">
+                        <div class="flex gap-2 text-[#888894]">
+                            <span>[12:00:03]</span>
+                            <span class="text-white">Connecting to Shenyang-1 core satellite matrix...</span>
+                        </div>
+                        <div class="flex gap-2 text-green-500">
+                            <span>[12:00:04]</span>
+                            <span>Secure handshake accepted. Cryptographic layer verified.</span>
+                        </div>
+                        <div class="flex gap-2 text-[#ff5500]">
+                            <span>[12:00:08]</span>
+                            <span>Warning: Slight bandwidth fluctuations detected in Night City subnet.</span>
+                        </div>
+                        <div class="flex gap-2 text-[#888894]">
+                            <span>[12:01:22]</span>
+                            <span>Rerouting orbital link relays to maximize defense grid coverage...</span>
+                        </div>
+                        <div class="flex gap-2 text-[#00f0ff]">
+                            <span>[12:01:23]</span>
+                            <span>Aegis defensive nodes operating at full capacity. Security stable.</span>
+                        </div>
+                    </div>
+
+                    <!-- Manual Quick Action Diagnostic Trigger Button -->
+                    <button onclick="triggerQuickAudit()" class="w-full py-2.5 bg-transparent border border-[#ff5500]/30 hover:border-[#ff5500] text-white rounded transition-all font-bold tracking-widest uppercase text-[10.5px] hover:bg-[#ff5500]/5 hover:shadow-lg hover:shadow-orange-950/20">
+                        Execute Comprehensive Security Sweep // 全面检测
+                    </button>
+                </div>
+
             </div>
+
+            <!-- Corporate Sectors and Strategic Operations Database Grid -->
+            <div>
+                <h2 class="section-title text-base font-bold tracking-widest border-l-4 border-[#ff5500] pl-3 mb-6 uppercase flex justify-between items-center text-white font-mono">
+                    <span>Corporate Divisions // 公司核心部门</span>
+                    <span class="text-[#888894] font-normal text-xs">SECURE DB // FILE: CORP_DIV_77</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Division 1 -->
+                    <div class="tech-card p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-[10px] font-mono text-[#ff5500] tracking-widest mb-2 uppercase">Core Sector // 01</div>
+                            <h3 class="text-lg font-bold text-white mb-3">Smart Armaments // 智能军械</h3>
+                            <p class="text-[#888894] text-xs leading-relaxed">
+                                Specializing in micro-missile kinetic hardware, auto-targeting systems, and neural weapon integration. Defining precision for defensive forces globally.
+                            </p>
+                        </div>
+                        <button onclick="switchTab('products')" class="mt-6 flex items-center gap-1.5 text-[11px] font-mono text-[#ff5500] font-bold hover:text-white transition-all uppercase self-start">
+                            View Catalog // 查看详情 &rarr;
+                        </button>
+                    </div>
+
+                    <!-- Division 2 -->
+                    <div class="tech-card p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-[10px] font-mono text-[#ff5500] tracking-widest mb-2 uppercase">Core Sector // 02</div>
+                            <h3 class="text-lg font-bold text-white mb-3">Secure Operations // 战术防务</h3>
+                            <p class="text-[#888894] text-xs leading-relaxed">
+                                Designing hardened physical barricades, bio-monitored extraction fleets, and impenetrable corporate encryption shields for private installations.
+                            </p>
+                        </div>
+                        <button onclick="switchTab('defense')" class="mt-6 flex items-center gap-1.5 text-[11px] font-mono text-[#ff5500] font-bold hover:text-white transition-all uppercase self-start">
+                            Access Security // 安全防护 &rarr;
+                        </button>
+                    </div>
+
+                    <!-- Division 3 -->
+                    <div class="tech-card p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-[10px] font-mono text-[#ff5500] tracking-widest mb-2 uppercase">Core Sector // 03</div>
+                            <h3 class="text-lg font-bold text-white mb-3">Quantum Logistics // 量子星网</h3>
+                            <p class="text-[#888894] text-xs leading-relaxed">
+                                Providing secure communication architectures over multi-node quantum transceiver arrays to shield corporate assets from unauthorized access.
+                            </p>
+                        </div>
+                        <button onclick="switchTab('network')" class="mt-6 flex items-center gap-1.5 text-[11px] font-mono text-[#ff5500] font-bold hover:text-white transition-all uppercase self-start">
+                            Inspect Relays // 检测星网 &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inter-Corporation Dynamic Trade Map Monitor -->
+            <div class="bg-[#0c0c0f] border border-[#1a1a22] rounded-xl p-6 shadow-2xl relative">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-[#1a1a22] pb-4 mb-6">
+                    <div>
+                        <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider">Sovereign Supply Nodes // 全球供应节点</h3>
+                        <p class="text-[11px] text-[#888894]">Real-time logistics routing of strategic defense cargo assets.</p>
+                    </div>
+                    <span class="mt-2 sm:mt-0 font-mono text-xs text-[#00f0ff] uppercase bg-[#00f0ff]/5 px-2.5 py-1 rounded border border-[#00f0ff]/20">ALL TRANSPORTS EN-ROUTE</span>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="bg-[#060608] border border-[#1d1d26] rounded-lg p-4 font-mono">
+                        <div class="text-[10px] text-[#888894] uppercase tracking-widest">SHENYANG HUBS</div>
+                        <div class="text-lg font-extrabold text-[#ff5500] my-1">ACTIVE</div>
+                        <div class="text-[9px] text-green-500">100% EXPORT EFFICIENCY</div>
+                    </div>
+                    <div class="bg-[#060608] border border-[#1d1d26] rounded-lg p-4 font-mono">
+                        <div class="text-[10px] text-[#888894] uppercase tracking-widest">NIGHT CITY DEPOT</div>
+                        <div class="text-lg font-extrabold text-white my-1">ONLINE</div>
+                        <div class="text-[9px] text-[#00f0ff]">SECURED SEC-4 FREIGHT</div>
+                    </div>
+                    <div class="bg-[#060608] border border-[#1d1d26] rounded-lg p-4 font-mono">
+                        <div class="text-[10px] text-[#888894] uppercase tracking-widest">NEO-TOKYO SECTOR</div>
+                        <div class="text-lg font-extrabold text-white my-1">NOMINAL</div>
+                        <div class="text-[9px] text-green-500">SECURE FREQUENCY ROUTE</div>
+                    </div>
+                    <div class="bg-[#060608] border border-[#1d1d26] rounded-lg p-4 font-mono">
+                        <div class="text-[10px] text-[#888894] uppercase tracking-widest">EUROPEAN CORRIDOR</div>
+                        <div class="text-lg font-extrabold text-white my-1">STANDBY</div>
+                        <div class="text-[9px] text-[#ff5500]">PRIORITY LOGISTICS LOAD</div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
-        <!-- MODULE PORTAL 02: PRODUCTS -->
-        <section id="tab-products" class="tab-panel" role="tabpanel" aria-labelledby="btn-products">
-            <h2 class="section-title">
-                Smart Weapon Armaments <span>KT-ARMORY // FIREARMS_DIVISION</span>
-            </h2>
-            <div class="system-grid">
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">KT-A22 // SMART PISTOL</span>
-                        <h3 class="card-title">
-                            A-22B Chao
-                        </h3>
+
+        <!-- ======================= TAB 02: ARMORY & WEAPON SYSTEMS ======================= -->
+        <section id="tab-products" class="tab-panel space-y-8" role="tabpanel" aria-labelledby="btn-products">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Live Target Acquisition Neural HUD Simulation (Canvas Component) -->
+                <div class="lg:col-span-5 bg-[#0c0c0f] border border-[#1a1a22] rounded-xl p-5 shadow-2xl">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-[11px] font-mono text-[#ff5500] tracking-widest uppercase font-bold flex items-center gap-1.5">
+                            <span class="h-2 w-2 rounded-full bg-[#ff5500] animate-pulse"></span>
+                            Neural Target Lock visualizer // 智能靶向模拟
+                        </span>
+                        <span class="text-[10px] font-mono text-[#888894]">HUD_LOCK_v4.22</span>
                     </div>
-                    <p class="card-desc">
-                        The corporate standard smart handgun. Fires micro-missiles utilizing a multi-barrel configuration to instantly lock and track multiple evasive threats simultaneously.
-                    </p>
-                </article>
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">KT-G58 // SMART SUBMACHINE GUN</span>
-                        <h3 class="card-title">
-                            G-58 Dian
-                        </h3>
+
+                    <!-- Canvas container representing Smart Weapons Auto-Target lock interface -->
+                    <div class="relative w-full aspect-video bg-[#050507] rounded-lg border border-[#1d1d26] overflow-hidden flex items-center justify-center">
+                        <canvas id="targetHUD" class="absolute inset-0 w-full h-full cursor-crosshair"></canvas>
+                        
+                        <!-- Overlay interface markers inside visualizer to simulate high-tech gun camera -->
+                        <div class="absolute inset-0 pointer-events-none flex flex-col justify-between p-3 font-mono text-[9px] text-[#ff5500]/60">
+                            <div class="flex justify-between">
+                                <span>REC [AUTO_TRACKING]</span>
+                                <span>MAG_LEVEL: 100%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>SWEEP ARCS: COMPLETED</span>
+                                <span class="text-[#00f0ff]">SECURE NEURAL OVERLAY</span>
+                            </div>
+                        </div>
                     </div>
-                    <p class="card-desc">
-                        An ultra-high fire rate defense asset. Operates a smart macro-targeting matrix that delivers surgical accuracy over close-quarters skirmishes without manual correction.
+                    
+                    <p class="text-[11px] text-[#888894] font-mono mt-3 leading-relaxed">
+                        <span class="text-[#ff5500] font-bold">INTERACTIVE HUD:</span> Click/hover on targets inside the scanning range grid overlay to lock firing trajectories instantly.
                     </p>
-                </article>
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">KT-L69 // SMART SHOTGUN</span>
-                        <h3 class="card-title">
-                            L-69 Zhuo
-                        </h3>
+                </div>
+
+                <!-- Smart Ammunition Hardware Weapon Catalog -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <h2 class="section-title text-base font-bold tracking-widest border-l-4 border-[#ff5500] pl-3 mb-2 uppercase text-white font-mono">
+                            Smart Weapon Armaments // 康陶智能武器
+                        </h2>
+                        <p class="text-[#888894] text-xs font-mono">COMPREHENSIVE KINETIC FILE LOG // CLASSIFIED INTEL</p>
                     </div>
-                    <p class="card-desc">
-                        A heavy-ordnance tactical variant. Fires micro-guided pellet cluster bursts that pattern precisely over a targeted neural grid array for maximum termination efficiency.
-                    </p>
-                </article>
+
+                    <div class="space-y-4">
+                        <!-- Weapon item 01: Chao Smart Pistol -->
+                        <div class="tech-card p-5 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
+                            <div class="space-y-1 max-w-lg">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono text-[10px] text-[#ff5500] font-bold">KT-A22 // SMART PISTOL</span>
+                                    <span class="px-1.5 py-0.5 bg-green-500/10 border border-green-500/30 text-green-500 font-mono text-[9px] rounded uppercase font-bold">Operational</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white tracking-wide">A-22B Chao // 赵</h3>
+                                <p class="text-[#888894] text-xs leading-relaxed">
+                                    Compact and lethal, the Chao fires guided micro-ammunition via neural-link pathways. Operates a dual barrel lock system allowing instant threat acquisition.
+                                </p>
+                            </div>
+                            <div class="font-mono text-right flex sm:flex-col justify-between w-full sm:w-auto border-t sm:border-t-0 border-[#1a1a22] pt-3 sm:pt-0">
+                                <span class="text-[10px] text-[#888894] uppercase tracking-wider block">Lock Range</span>
+                                <span class="text-white text-sm font-bold font-sans">45 METERS</span>
+                            </div>
+                        </div>
+
+                        <!-- Weapon item 02: Dian Submachine Gun -->
+                        <div class="tech-card p-5 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
+                            <div class="space-y-1 max-w-lg">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono text-[10px] text-[#ff5500] font-bold">KT-G58 // SMART SUBMACHINE GUN</span>
+                                    <span class="px-1.5 py-0.5 bg-green-500/10 border border-green-500/30 text-green-500 font-mono text-[9px] rounded uppercase font-bold">Operational</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white tracking-wide">G-58 Dian // 电</h3>
+                                <p class="text-[#888894] text-xs leading-relaxed">
+                                    Engineered for urban operations and private defense contractors. Provides surgical suppressive fires without bullet trajectory drift or targeting delay.
+                                </p>
+                            </div>
+                            <div class="font-mono text-right flex sm:flex-col justify-between w-full sm:w-auto border-t sm:border-t-0 border-[#1a1a22] pt-3 sm:pt-0">
+                                <span class="text-[10px] text-[#888894] uppercase tracking-wider block">Lock Range</span>
+                                <span class="text-white text-sm font-bold font-sans">85 METERS</span>
+                            </div>
+                        </div>
+
+                        <!-- Weapon item 03: Zhuo Shotgun -->
+                        <div class="tech-card p-5 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
+                            <div class="space-y-1 max-w-lg">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono text-[10px] text-[#ff5500] font-bold">KT-L69 // SMART SHOTGUN</span>
+                                    <span class="px-1.5 py-0.5 bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-[#00f0ff] font-mono text-[9px] rounded uppercase font-bold">Premium Deploy</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white tracking-wide">L-69 Zhuo // 卓</h3>
+                                <p class="text-[#888894] text-xs leading-relaxed">
+                                    A massive tactical weapon system that fires precision-guided kinetic clusters capable of completely clearing tight corridors and securing extraction paths.
+                                </p>
+                            </div>
+                            <div class="font-mono text-right flex sm:flex-col justify-between w-full sm:w-auto border-t sm:border-t-0 border-[#1a1a22] pt-3 sm:pt-0">
+                                <span class="text-[10px] text-[#888894] uppercase tracking-wider block">Lock Range</span>
+                                <span class="text-white text-sm font-bold font-sans">35 METERS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
         </section>
 
-        <!-- MODULE PORTAL 03: DEFENSE APPARATUS -->
-        <section id="tab-defense" class="tab-panel" role="tabpanel" aria-labelledby="btn-defense">
-            <h2 class="section-title">
-                Corporate Defense Infrastructures <span>KT-DEF // SECURE_SHIELD</span>
-            </h2>
-            <div class="system-grid">
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">KT-DF01 // NEURAL BARRIER</span>
-                        <h3 class="card-title">
-                            Aegis Grid Overhaul
-                        </h3>
-                    </div>
-                    <p class="card-desc">
-                        Hardware-based sub-dermal shield buffers that counter external tracking and jam rogue electronic interception vectors completely.
-                    </p>
-                </article>
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">KT-DF02 // HARDWARE MASKING</span>
-                        <h3 class="card-title">
-                            ICE-Wall Fortification
-                        </h3>
-                    </div>
-                    <p class="card-desc">
-                        Military-grade cryptographic firmware protections guarding corporate cybernetic links against invasive neural architecture breaches.
-                    </p>
-                </article>
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">KT-DF03 // PERSONNEL EXTRACTION</span>
-                        <h3 class="card-title">
-                            Autonomous Extraction Drone
-                        </h3>
-                    </div>
-                    <p class="card-desc">
-                        Automated airborne assets linked directly into VIP vitals tracking matrices, ready to deploy immediate suppressive covering layouts during perimeter stress events.
-                    </p>
-                </article>
+
+        <!-- ======================= TAB 03: DEFENSE INFRASTRUCTURE ======================= -->
+        <section id="tab-defense" class="tab-panel space-y-8" role="tabpanel" aria-labelledby="btn-defense">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-[#1a1a22] pb-4 gap-2">
+                <div>
+                    <h2 class="text-xl font-bold font-mono tracking-widest text-white uppercase">Corporate Defense Array // 战术安防与防御设施</h2>
+                    <p class="text-xs text-[#888894]">INTELLIGENT RECOGNITION SECURITY PLATFORMS // SHENYANG HQ DIRECTORY</p>
+                </div>
+                <div class="font-mono text-xs flex items-center gap-2">
+                    <span class="text-[#888894]">DEFENSE EFFICIENCY RATIO:</span>
+                    <span class="text-[#ff5500] font-bold bg-[#ff5500]/5 px-2 py-0.5 border border-[#ff5500]/20 rounded">99.992% SECURE</span>
+                </div>
             </div>
+
+            <!-- Defensive Grid Visual Modules and Sweep Simulator -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Security Module 01 -->
+                <div class="bg-[#0c0c0f] border border-[#1a1a22] p-6 rounded-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-mono text-[10px] text-[#ff5500] tracking-widest uppercase">HARDWARE SYSTEM</span>
+                            <span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-2">Neural Aegis Grid // 神经防御网</h3>
+                        <p class="text-xs text-[#888894] leading-relaxed mb-4">
+                            Implanted sub-dermal interface defense barriers that shield against raw neural hacking vectors, trace location signals, and bio-signature monitoring attempts.
+                        </p>
+                    </div>
+                    <div class="border-t border-[#1a1a22] pt-4 flex justify-between items-center">
+                        <span class="text-[10px] text-[#888894] font-mono">STATUS: OPERATIONAL</span>
+                        <span class="text-[11px] font-mono text-white font-bold bg-[#1a1a22] px-2 py-0.5 rounded">98% CALIBRATION</span>
+                    </div>
+                </div>
+
+                <!-- Security Module 02 -->
+                <div class="bg-[#0c0c0f] border border-[#1a1a22] p-6 rounded-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-mono text-[10px] text-[#ff5500] tracking-widest uppercase">TACTICAL HARDWARE</span>
+                            <span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-2">Autonomous Rescue Fleet // 自主撤离无人机</h3>
+                        <p class="text-xs text-[#888894] leading-relaxed mb-4">
+                            Heavy extraction drones linked directly to client vitals signals. Deploys under high-stress scenarios to establish suppressive micro-explosive barricades.
+                        </p>
+                    </div>
+                    <div class="border-t border-[#1a1a22] pt-4 flex justify-between items-center">
+                        <span class="text-[10px] text-[#888894] font-mono">STATUS: STANDBY</span>
+                        <span class="text-[11px] font-mono text-white font-bold bg-[#1a1a22] px-2 py-0.5 rounded">READY // TO-LAUNCH</span>
+                    </div>
+                </div>
+
+                <!-- Security Module 03 -->
+                <div class="bg-[#0c0c0f] border border-[#1a1a22] p-6 rounded-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-mono text-[10px] text-[#ff5500] tracking-widest uppercase">SOFTWARE DEFENSE</span>
+                            <span class="h-1.5 w-1.5 rounded-full bg-[#00f0ff]"></span>
+                        </div>
+                        <h3 class="text-base font-bold text-white mb-2">Hardened ICE Walls // 防御层</h3>
+                        <p class="text-xs text-[#888894] leading-relaxed mb-4">
+                            Next-generation neural defensive architecture designed to execute instant counter-traces and disable hostile netrunner links attempting systems access.
+                        </p>
+                    </div>
+                    <div class="border-t border-[#1a1a22] pt-4 flex justify-between items-center">
+                        <span class="text-[10px] text-[#888894] font-mono">STATUS: ACTIVE SCAN</span>
+                        <span class="text-[11px] font-mono text-[#00f0ff] font-bold bg-[#101f22] px-2 py-0.5 rounded">0 SEC DELAY</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Interactive Threat Sweep Control Terminal -->
+            <div class="bg-[#0c0c0f] border border-[#1a1a22] rounded-xl p-6 shadow-2xl font-mono text-xs relative">
+                <div class="border-b border-[#1a1a22] pb-4 mb-4 flex justify-between items-center">
+                    <span class="text-white font-bold uppercase tracking-wider">Manual Aegis Decoupling Verification // 安防状态手动控制面板</span>
+                    <span class="text-[#ff5500]">SEC-SYS // MAIN</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-8 text-[#888894] text-xs leading-relaxed">
+                        To guarantee structural security integrity across private compound boundaries, users are permitted to verify node status sweeps. Triggering a manual verification checks local firewalls, cyber-link masking levels, and satellite response protocols.
+                    </div>
+                    <div class="md:col-span-4 flex flex-col gap-2">
+                        <button onclick="triggerDefensiveSweep()" class="w-full py-3 bg-[#ff5500] hover:bg-[#ff6611] text-[#060606] rounded font-bold tracking-widest uppercase text-[11px] transition-all duration-300 hover:shadow-lg hover:shadow-orange-950/30">
+                            Perform Aegis Audit // 执行审计
+                        </button>
+                        <div class="text-[10px] text-center text-[#888894]" id="sweep-status-lbl">LAST SWEEP CALIBRATED // NOMINAL STATUS</div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
-        <!-- MODULE PORTAL 04: GLOBAL NETWORK ARRAYS -->
-        <section id="tab-network" class="tab-panel" role="tabpanel" aria-labelledby="btn-network">
-            <h2 class="section-title">
-                Global Quantum Network Array <span>KT-NET // DATA_MATRIX</span>
-            </h2>
-            <div class="system-grid">
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">KT-NW01 // SECURE RELAY</span>
-                        <h3 class="card-title">
-                            Quantum Encryption Nodes
-                        </h3>
+
+        <!-- ======================= TAB 04: NETWORK ARRAYS ======================= -->
+        <section id="tab-network" class="tab-panel space-y-8" role="tabpanel" aria-labelledby="btn-network">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Satellite Quantum Transceiver Grid Monitor -->
+                <div class="lg:col-span-7 bg-[#0c0c0f] border border-[#1a1a22] rounded-xl p-6 shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <div>
+                                <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider">Sub-Orbital Relays Matrix // 卫星量子中继矩阵</h3>
+                                <p class="text-[11px] text-[#888894]">Active global positioning and quantum communication satellite paths.</p>
+                            </div>
+                            <span class="px-2 py-0.5 bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-[#00f0ff] font-mono text-[9px] rounded uppercase font-bold">Synchronized</span>
+                        </div>
+
+                        <!-- Satellite visual alignment simulator with interactive nodes -->
+                        <div class="bg-[#050507] border border-[#1d1d26] rounded-lg p-4 space-y-4">
+                            <!-- Sat 1 -->
+                            <div class="flex justify-between items-center border-b border-[#1a1a22] pb-3">
+                                <div class="font-mono text-xs">
+                                    <div class="text-white font-bold">KANGTAO-SAT-109 (NEO-CHINA)</div>
+                                    <div class="text-[#888894] text-[10px]">Azimuth: 142.09° // Status: Active Beam</div>
+                                </div>
+                                <span class="text-[11px] font-mono text-green-500 font-bold bg-green-950/25 px-2 py-0.5 rounded">99.8% SIG</span>
+                            </div>
+                            <!-- Sat 2 -->
+                            <div class="flex justify-between items-center border-b border-[#1a1a22] pb-3">
+                                <div class="font-mono text-xs">
+                                    <div class="text-white font-bold">KANGTAO-SAT-202 (NIGHT CITY)</div>
+                                    <div class="text-[#888894] text-[10px]">Azimuth: 84.11° // Status: Synchronized</div>
+                                </div>
+                                <span class="text-[11px] font-mono text-green-500 font-bold bg-green-950/25 px-2 py-0.5 rounded">98.4% SIG</span>
+                            </div>
+                            <!-- Sat 3 -->
+                            <div class="flex justify-between items-center">
+                                <div class="font-mono text-xs">
+                                    <div class="text-white font-bold">KANGTAO-SAT-054 (EURO-ORBIT)</div>
+                                    <div class="text-[#888894] text-[10px]">Azimuth: 11.45° // Status: Aligning Array</div>
+                                </div>
+                                <span class="text-[11px] font-mono text-[#ff5500] font-bold bg-orange-950/25 px-2 py-0.5 rounded">CONNECTING</span>
+                            </div>
+                        </div>
                     </div>
-                    <p class="card-desc">
-                        Decentralized hyper-frequency transceiver relays preventing any data capture or packet decoding across interstellar deep-space frequencies.
+
+                    <p class="text-xs text-[#888894] leading-relaxed mt-4">
+                        <span class="text-[#ff5500] font-bold">Logistics Guard:</span> Transceiver systems auto-rotate antennas towards designated targets to shield data packets against interception vectors.
                     </p>
-                </article>
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">KT-NW02 // LINK MONITOR</span>
-                        <h3 class="card-title">
-                            Sub-Orbital Data Uplink
-                        </h3>
+                </div>
+
+                <!-- Cryptographic Secure Messaging Log Terminal -->
+                <div class="lg:col-span-5 bg-[#0a0a0d] border border-[#1a1a22] rounded-xl p-6 flex flex-col justify-between font-mono text-xs shadow-2xl relative">
+                    <div>
+                        <div class="border-b border-[#1a1a22] pb-4 mb-4 flex justify-between items-center">
+                            <span class="text-[#00f0ff] font-bold tracking-widest text-[11px] uppercase">
+                                Encrypted Messaging Console // 机密网络终端
+                            </span>
+                        </div>
+
+                        <!-- System Messaging Board Simulator -->
+                        <div class="space-y-4 max-h-[260px] overflow-y-auto pr-2 scrollbar-thin">
+                            <div class="border border-[#1a1a22] bg-[#07070a] p-3 rounded-md">
+                                <div class="flex justify-between mb-1.5">
+                                    <span class="text-[#ff5500] font-bold">[SHENYANG CORE SYS]</span>
+                                    <span class="text-[#888894] text-[9px]">RESTRICTED FILE</span>
+                                </div>
+                                <div class="text-white text-[11px] leading-relaxed">
+                                    Strategic supply convoys to regional distribution nodes remain shielded by localized quantum scrambler fields. Proceed along route delta with full cyber-link silence.
+                                </div>
+                            </div>
+
+                            <div class="border border-[#1a1a22] bg-[#07070a] p-3 rounded-md">
+                                <div class="flex justify-between mb-1.5">
+                                    <span class="text-[#00f0ff] font-bold">[NETRUNNER INTRUSION]</span>
+                                    <span class="text-[#888894] text-[9px]">SWEEP LOG</span>
+                                </div>
+                                <div class="text-white text-[11px] leading-relaxed">
+                                    Unidentified subnets detected near border compound grids. Aegis defense lines initiated trace-counters and successfully isolated link source vectors.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="card-desc">
-                        Constellation satellite systems that route strategic assets across redundant processing facilities for uninterrupted operational communication.
-                    </p>
-                </article>
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">KT-NW03 // CYBER EYE</span>
-                        <h3 class="card-title">
-                            Sub-Net Scanning Arrays
-                        </h3>
+
+                    <!-- Interactive Diagnostic Message Sender Form -->
+                    <div class="border-t border-[#1a1a22] pt-4 mt-4">
+                        <div class="flex gap-2">
+                            <input id="terminalMsgInput" type="text" placeholder="Transmit query message..." class="flex-grow bg-[#050507] border border-[#1d1d26] text-white rounded px-3 py-2 text-xs focus:outline-none focus:border-[#00f0ff] placeholder-[#55555d]">
+                            <button onclick="sendDiagnosticMessage()" class="px-4 py-2 bg-[#00f0ff] hover:bg-[#20f5ff] text-[#060606] rounded font-bold uppercase text-[11px] transition-all">
+                                SEND
+                            </button>
+                        </div>
                     </div>
-                    <p class="card-desc">
-                        Real-time proactive intrusion counter-measurement systems mapping unauthorized subnet connections within regional infrastructure bounds.
-                    </p>
-                </article>
+                </div>
+
             </div>
+
         </section>
 
-        <!-- MODULE PORTAL 05: QIANT CYBERWARE SUBSIDIARY -->
-        <section id="tab-qiant" class="tab-panel" role="tabpanel" aria-labelledby="btn-qiant">
-            <h2 class="section-title">
-                QianT Cyberware Subsidiary <span>QIANT-BIO // NEURAL_UPGRADES</span>
-            </h2>
-            <div class="system-grid">
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">QT-MK4 // NERVOUS SYSTEM</span>
-                        <h3 class="card-title">
-                            QianT Sandevistan Mk.4
-                        </h3>
+
+        <!-- ======================= TAB 05: QIANT CYBERWARE ======================= -->
+        <section id="tab-qiant" class="tab-panel space-y-8" role="tabpanel" aria-labelledby="btn-qiant">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Expanded Tactical Synaptic Cyberware Listing -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="px-2 py-0.5 bg-[#ff5500]/10 border border-[#ff5500]/30 text-[#ff5500] font-mono text-[10px] tracking-widest rounded">QIANT CORP // SUBSIDIARY</span>
+                            <span class="text-xs font-mono text-[#888894]">PREMIER NEURO-IMPLANT DIVISION</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white tracking-tight">QianT Cyberware Systems // 千体科技神经植入物</h2>
+                        <p class="text-[#888894] text-xs leading-relaxed mt-1">
+                            Pioneering temporal dilation cyberware architectures, nervous system enhancements, and elite synaptic processors designed to maximize performance of tactical squads.
+                        </p>
                     </div>
-                    <p class="card-desc">
-                        The premiere military-grade neural processor expansion. Drastically optimizes temporal dilation, slowing down baseline perception to execute clean combat adjustments under pressure.
-                    </p>
-                </article>
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">QT-MK5 // REFLEX UPGRADE</span>
-                        <h3 class="card-title">
-                            QianT "Warp Dancer" Sandevistan Mk.5
-                        </h3>
+
+                    <div class="space-y-4">
+                        <!-- Implant 01 -->
+                        <div class="tech-card p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold text-white font-mono tracking-wide">QianT Sandevistan Mk.4 // 斯安威斯坦四代</h3>
+                                <span class="text-xs font-mono text-[#ff5500] font-bold">QTY: AVAILABLE</span>
+                            </div>
+                            <p class="text-xs text-[#888894] leading-relaxed mb-4">
+                                The industry standard temporal dilation processor. Triggers direct neuro-transmitter flooding that slows external perceived timeline rates down to 25% for 16 seconds.
+                            </p>
+                            <div class="flex justify-between items-center text-[10px] font-mono text-[#888894]">
+                                <span>COOLDOWN: 15 SECONDS</span>
+                                <span class="text-white font-bold bg-[#1a1a22] px-2 py-0.5 rounded">REFLEX REQUIREMENT: 15</span>
+                            </div>
+                        </div>
+
+                        <!-- Implant 02 -->
+                        <div class="tech-card p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold text-white font-mono tracking-wide">QianT "Warp Dancer" Sandevistan Mk.5 // 终极斯安威斯坦</h3>
+                                <span class="text-xs font-mono text-[#00f0ff] font-bold">QTY: SPECIAL ORDER</span>
+                            </div>
+                            <p class="text-xs text-[#888894] leading-relaxed mb-4">
+                                Hyper-clocked prototype built exclusively for elite corporate defense corps. Reduces perceived timeline speeds to an incredible 10%, letting operators easily evade projectile paths.
+                            </p>
+                            <div class="flex justify-between items-center text-[10px] font-mono text-[#888894]">
+                                <span>COOLDOWN: 30 SECONDS</span>
+                                <span class="text-[#00f0ff] font-bold bg-[#101f22] px-2 py-0.5 rounded">REFLEX REQUIREMENT: 20</span>
+                            </div>
+                        </div>
+
+                        <!-- Implant 03 -->
+                        <div class="tech-card p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold text-white font-mono tracking-wide">Smart Link Co-Processor // 智能微机芯片</h3>
+                                <span class="text-xs font-mono text-[#888894]">QTY: UNLIMITED</span>
+                            </div>
+                            <p class="text-xs text-[#888894] leading-relaxed mb-4">
+                                Sub-dermal neural link connector designed to cleanly relay lock-on and target tracking vectors directly into smart weapon firing matrices.
+                            </p>
+                            <div class="flex justify-between items-center text-[10px] font-mono text-[#888894]">
+                                <span>COOLDOWN: 0 SECONDS</span>
+                                <span class="text-white font-bold bg-[#1a1a22] px-2 py-0.5 rounded">INTEGRATES: ALL KT FIREARMS</span>
+                            </div>
+                        </div>
                     </div>
-                    <p class="card-desc">
-                        An elite hyper-tuned cybernetic array offering peak synchronization performance. Restructures synaptic pathways to squeeze unparalleled reflex responses out of highly trained operators.
-                    </p>
-                </article>
-                <article class="tech-card">
-                    <div class="card-meta">
-                        <span class="card-id">QT-CO03 // BIO-MONITOR</span>
-                        <h3 class="card-title">
-                            Co-Processor Cores
-                        </h3>
+                </div>
+
+                <!-- Interactive Time Dilation Simulated Test HUD -->
+                <div class="lg:col-span-5 bg-[#0c0c0f] border border-[#1a1a22] rounded-xl p-5 shadow-2xl relative overflow-hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-[11px] font-mono text-[#ff5500] tracking-widest uppercase font-bold">
+                            Temporal Dilation simulator // 斯安威斯坦时滞测试
+                        </span>
+                        <span class="text-[9px] font-mono text-[#888894]">IMPLANT_TEST_HUD</span>
                     </div>
-                    <p class="card-desc">
-                        Direct interface nodes engineered to bridge smart targeted ammunition systems cleanly with sub-dermal weapon tracking cyberware matrices.
+
+                    <!-- Target Canvas visual for temporal dilation game/visualization -->
+                    <div class="relative w-full aspect-square max-w-[340px] mx-auto bg-[#050507] rounded-lg border border-[#1d1d26] overflow-hidden flex flex-col justify-between p-3">
+                        <div class="relative flex-grow flex items-center justify-center">
+                            <!-- Simulated moving particle representing time dilation slowing speed -->
+                            <div id="dilationTarget" class="absolute h-8 w-8 rounded-full border-2 border-[#ff5500] flex items-center justify-center font-mono text-[9px] font-bold text-[#ff5500] transition-transform shadow-lg shadow-orange-950/40">
+                                OBJ
+                            </div>
+                            
+                            <!-- Static center grid reference -->
+                            <div class="absolute inset-0 border border-dashed border-[#ff5500]/10 flex items-center justify-center">
+                                <div class="h-16 w-16 rounded-full border border-dashed border-[#ff5500]/15"></div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive control triggers for dilation speed adjustments -->
+                        <div class="mt-4 pt-3 border-t border-[#1a1a22] space-y-2">
+                            <button id="sandeBtn" onclick="toggleSandevistan()" class="w-full py-2.5 bg-[#ff5500] hover:bg-[#ff6611] text-[#060606] rounded font-bold tracking-widest uppercase text-[10.5px] transition-all duration-300">
+                                Activate Sandevistan Mk.4 // 启动超频
+                            </button>
+                            <div class="flex justify-between text-[10px] font-mono text-[#888894]">
+                                <span>DILATION SPEED: <span id="dilationVal text-white">100% (NORMAL)</span></span>
+                                <span id="sandeStatus" class="text-green-500 font-bold">STANDBY</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] text-[#888894] font-mono mt-4 leading-relaxed text-center">
+                        Toggle the dilation engine above to instantly experience how QianT cyberware slows down combat realities, giving operators surgical execution control.
                     </p>
-                </article>
+                </div>
+
             </div>
+
         </section>
 
-        <!-- Grounded Bottom Footer Baseline with Corporate Intelligence Statement -->
-        <footer class="footer-row">
-            <div class="footer-help-row" style="letter-spacing: 3px; font-weight: 700; color: rgba(255, 255, 255, 0.15); text-transform: uppercase;">
-                THIS IS KANGTAO. THIS IS INTELLIGENCE.
-            </div>
-        </footer>
     </main>
 
-    <!-- Navigation Routing -->
-    <script>
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
-            document.querySelectorAll('.nav-links button').forEach(btn => btn.classList.remove('active'));
+    <!-- GROUNDED BRANDING BASELINE FOOTER -->
+    <footer class="w-full bg-[#060608] border-t border-[#1a1a22] mt-auto py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
             
+            <div class="text-center md:text-left">
+                <span class="text-[11.5px] font-mono text-[#ff5500]/60 tracking-widest font-extrabold uppercase">
+                    THIS IS KANG TAO. THIS IS INTELLIGENCE. // 智能与精准 领先全球
+                </span>
+            </div>
+
+            <!-- Strategic Secure Support Links -->
+            <div class="flex items-center gap-6 font-mono text-[11px]">
+                <a href="help.html" class="text-[#888894] hover:text-white transition-colors duration-200 uppercase tracking-widest hover:underline hover:underline-offset-4">
+                    Security Portal // 支持中心
+                </a>
+                <span class="text-[#1a1a22]">|</span>
+                <span class="text-green-500 tracking-wider">SECURE TRANSMISSION ENCRYPTED</span>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- ======================= INTERACTIVE JAVASCRIPT LOGIC ======================= -->
+    <script>
+        
+        // Active Navigation Routing Tab States
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-panel').forEach(panel => {
+                panel.classList.remove('active');
+                panel.style.opacity = '0';
+                panel.style.transform = 'translateY(10px)';
+            });
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+
             const targetPanel = document.getElementById('tab-' + tabName);
             const targetButton = document.getElementById('btn-' + tabName);
 
-            if (targetPanel) targetPanel.classList.add('active');
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+                // Brief timeout to trigger beautiful fade in CSS animations
+                setTimeout(() => {
+                    targetPanel.style.opacity = '1';
+                    targetPanel.style.transform = 'translateY(0)';
+                }, 50);
+            }
             if (targetButton) {
                 targetButton.classList.add('active');
                 targetButton.setAttribute('aria-selected', 'true');
@@ -618,6 +867,259 @@
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Live Diagnostic Log Simulation Runner
+        function triggerQuickAudit() {
+            const diagContainer = document.getElementById('diag-container');
+            const messages = [
+                { text: "Executing secure network sweep across European logistics channels...", color: "text-[#888894]" },
+                { text: "Checking cryptographic handshake keys with sub-orbital Satellites...", color: "text-[#888894]" },
+                { text: "Firewall verification completed. Secure database access approved.", color: "text-[#00f0ff]" },
+                { text: "Core systems optimized. No intrusive neural patterns detected.", color: "text-green-500" }
+            ];
+
+            let index = 0;
+            const logInterval = setInterval(() => {
+                if (index < messages.length) {
+                    const logRow = document.createElement('div');
+                    logRow.className = `flex gap-2 ${messages[index].color}`;
+                    
+                    const timestamp = new Date().toLocaleTimeString();
+                    logRow.innerHTML = `<span>[${timestamp}]</span> <span>${messages[index].text}</span>`;
+                    
+                    diagContainer.appendChild(logRow);
+                    diagContainer.scrollTop = diagContainer.scrollHeight;
+                    index++;
+                } else {
+                    clearInterval(logInterval);
+                }
+            }, 750);
+        }
+
+        // Interactive Defensive Sweeping Simulation Tracker
+        function triggerDefensiveSweep() {
+            const sweepLbl = document.getElementById('sweep-status-lbl');
+            sweepLbl.innerHTML = "<span class='text-yellow-500 animate-pulse'>SWEEPING GLOBAL NETWORK NODE FIREWALLS...</span>";
+            
+            setTimeout(() => {
+                sweepLbl.innerHTML = "<span class='text-green-400 font-bold'>ALL FIREWALL INTEGRITY CONFIRMED // Aegis fully operational!</span>";
+            }, 2000);
+        }
+
+        // Interactive secure communications log transmit
+        function sendDiagnosticMessage() {
+            const msgInput = document.getElementById('terminalMsgInput');
+            if (msgInput && msgInput.value.trim() !== "") {
+                const userText = msgInput.value.trim();
+                msgInput.value = "";
+                
+                // Add message directly into custom secure chat logs UI
+                const chatContainer = msgInput.closest('.lg\\:col-span-5').querySelector('.space-y-4');
+                
+                const newMsg = document.createElement('div');
+                newMsg.className = "border border-[#ff5500]/20 bg-[#ff5500]/5 p-3 rounded-md";
+                newMsg.innerHTML = `
+                    <div class="flex justify-between mb-1.5">
+                        <span class="text-[#ff5500] font-bold">[LOCAL CLIENT TRANSMISSION]</span>
+                        <span class="text-[#888894] text-[9px]">ENCRYPTED SECURE FEED</span>
+                    </div>
+                    <div class="text-white text-[11px] leading-relaxed">
+                        ${userText}
+                    </div>
+                `;
+                chatContainer.appendChild(newMsg);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+        }
+
+
+        
+        // Smart Targeting Interactive Canvas System Initialization
+        const canvas = document.getElementById('targetHUD');
+        const ctx = canvas.getContext('2d');
+        let targets = [];
+        let mouseX = 0;
+        let mouseY = 0;
+
+        function resizeCanvas() {
+            const rect = canvas.parentNode.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Populate initial smart weapons tracking objectives
+        for (let i = 0; i < 5; i++) {
+            targets.push({
+                x: Math.random() * 250 + 50,
+                y: Math.random() * 120 + 30,
+                vx: (Math.random() - 0.5) * 1.5,
+                vy: (Math.random() - 0.5) * 1.5,
+                locked: false,
+                lockProgress: 0,
+                size: 8
+            });
+        }
+
+        // Mouse hover positioning calculations inside lock-on grid
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+        });
+
+        // Click interaction triggers permanent neural locking targeting status
+        canvas.addEventListener('mousedown', () => {
+            targets.forEach(t => {
+                const dist = Math.hypot(t.x - mouseX, t.y - mouseY);
+                if (dist < 40) {
+                    t.locked = !t.locked;
+                }
+            });
+        });
+
+        // Main game looping logic for target lock visualizations
+        function drawHUD() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw visual coordinate sector gridlines
+            ctx.strokeStyle = 'rgba(255, 85, 0, 0.08)';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < canvas.width; x += 30) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+            for (let y = 0; y < canvas.height; y += 30) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+
+            // Render and coordinate trajectory locks
+            targets.forEach(t => {
+                t.x += t.vx;
+                t.y += t.vy;
+
+                // Simple wall collision bounce physics
+                if (t.x < 10 || t.x > canvas.width - 10) t.vx *= -1;
+                if (t.y < 10 || t.y > canvas.height - 10) t.vy *= -1;
+
+                const distToMouse = Math.hypot(t.x - mouseX, t.y - mouseY);
+                
+                if (distToMouse < 45 || t.locked) {
+                    t.lockProgress = Math.min(100, t.lockProgress + 5);
+                } else {
+                    t.lockProgress = Math.max(0, t.lockProgress - 5);
+                }
+
+                // Render dynamic locks indicator color channels
+                const isFullyLocked = t.lockProgress >= 100 || t.locked;
+                ctx.strokeStyle = isFullyLocked ? '#ff5500' : 'rgba(255, 85, 0, 0.4)';
+                ctx.fillStyle = isFullyLocked ? '#ff5500' : 'rgba(255, 85, 0, 0.4)';
+                
+                // Draw auto-targeting objective dot
+                ctx.beginPath();
+                ctx.arc(t.x, t.y, isFullyLocked ? 4 : 2, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Render micro lock-on bracket rings
+                ctx.beginPath();
+                ctx.arc(t.x, t.y, 16 - (t.lockProgress * 0.08), 0, Math.PI * 2);
+                ctx.stroke();
+
+                if (isFullyLocked) {
+                    ctx.font = '7px Share Tech Mono';
+                    ctx.fillText('TARGET LOCK // TRACKING', t.x + 12, t.y - 6);
+                    
+                    // Draw trajectory intercept coordinate vectors
+                    ctx.beginPath();
+                    ctx.moveTo(t.x, t.y);
+                    ctx.lineTo(mouseX, mouseY);
+                    ctx.strokeStyle = 'rgba(255, 85, 0, 0.15)';
+                    ctx.stroke();
+                }
+            });
+
+            // Draw dynamic cursor targeting circle
+            ctx.beginPath();
+            ctx.arc(mouseX, mouseY, 25, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(255, 85, 0, 0.3)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            // Reticle center hairline markers
+            ctx.beginPath();
+            ctx.moveTo(mouseX - 5, mouseY);
+            ctx.lineTo(mouseX + 5, mouseY);
+            ctx.moveTo(mouseX, mouseY - 5);
+            ctx.lineTo(mouseX, mouseY + 5);
+            ctx.strokeStyle = '#ff5500';
+            ctx.stroke();
+
+            requestAnimationFrame(drawHUD);
+        }
+
+        // Start smart target HUD looping
+        drawHUD();
+
+
+        
+        // Interactive Time Dilation Simulated Test HUD Loop
+        let sandeActive = false;
+        let sandeSpeed = 4.5;
+        let sandeAngle = 0;
+        
+        function toggleSandevistan() {
+            const btn = document.getElementById('sandeBtn');
+            const status = document.getElementById('sandeStatus');
+            const target = document.getElementById('dilationTarget');
+
+            if (!sandeActive) {
+                sandeActive = true;
+                sandeSpeed = 0.5; // Slow down target motion loop rate
+                btn.innerText = "Deactivate Sandevistan // 恢复常速";
+                status.innerText = "DILATION COMPLETED // Slow Motion Enabled";
+                status.className = "text-[#ff5500] font-bold";
+                target.style.borderColor = "#00f0ff";
+                target.style.color = "#00f0ff";
+                target.innerText = "SLOW";
+                target.style.boxShadow = "0 0 20px rgba(0, 240, 255, 0.5)";
+            } else {
+                sandeActive = false;
+                sandeSpeed = 4.5; // Restore normal physics loops speed rate
+                btn.innerText = "Activate Sandevistan Mk.4 // 启动超频";
+                status.innerText = "STANDBY";
+                status.className = "text-green-500 font-bold";
+                target.style.borderColor = "#ff5500";
+                target.style.color = "#ff5500";
+                target.innerText = "OBJ";
+                target.style.boxShadow = "none";
+            }
+        }
+
+        // Simulated slow-motion target positioning physics ticker
+        function animateDilationTarget() {
+            sandeAngle += (sandeSpeed * 0.015);
+            const r = 60; // Circle rotation radius bounds
+            const tx = Math.cos(sandeAngle) * r;
+            const ty = Math.sin(sandeAngle) * r;
+            
+            const targetEl = document.getElementById('dilationTarget');
+            if (targetEl) {
+                targetEl.style.transform = `translate(${tx}px, ${ty}px)`;
+            }
+            
+            requestAnimationFrame(animateDilationTarget);
+        }
+
+        // Start time dilation simulator ticker loop
+        animateDilationTarget();
+
     </script>
 </body>
 </html>
